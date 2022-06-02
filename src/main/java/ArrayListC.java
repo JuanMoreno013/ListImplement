@@ -59,6 +59,9 @@ public class ArrayListC<E> implements List<E>{
     @Override
     public E get(int index) {
 
+        if (index < 0) {
+            throw new IllegalArgumentException();
+        }
         checkSize(index,size);
         return (E) elements[index];
     }
@@ -114,9 +117,7 @@ public class ArrayListC<E> implements List<E>{
         } else {
             throw new NullPointerException(" The item are null ");
         }
-
         remove(i);
-
     }
 
     @Override
