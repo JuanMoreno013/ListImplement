@@ -11,7 +11,7 @@ public class LinkedList<E> implements List<E> {
     }
 
 
-    private Node headNode = null; //head node of the linked list
+    private Node headNode; //head node of the linked list
     private Node tail = null;
    // private Node last;
     public int size;      //size of the list
@@ -24,17 +24,23 @@ public class LinkedList<E> implements List<E> {
 
 
     void nNode(E data){
-
-        Node new_node = new Node(data);
-//        new_node = headNode;
-        headNode= new_node;
+        //        new_node = headNode;
+        headNode= new Node(data);
     }
 
+    public LinkedList(List<E> list) {
+        if(list == null)
+            throw new NullPointerException();
+
+    }
 
     @Override
     public void add(E data) {
         Node new_node = new Node(data);
 //        new_node = headNode;
+
+        if(data == null)
+            throw new NullPointerException();
 
         if(headNode==null)               //If list is empty, both head and tail will point to new node
         {
@@ -57,7 +63,7 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        if (index < 0) {
+        if (index < 0 || index > size) {
             throw new IllegalArgumentException();
         }
         checkSize(index,size);
@@ -136,13 +142,12 @@ public class LinkedList<E> implements List<E> {
     @Override
     public void remove(E item) {
 
-        Node temp = headNode, prev = tail;
+        Node temp = headNode;
 
         int i= 0;
         if ( item!= null )
         {
             for (; i < size; i++) {
-//                if (item.equals(headNode.nextNode))
                 if (item.equals(temp.data))
                     break;
                 temp = temp.nextNode;
@@ -163,8 +168,6 @@ public class LinkedList<E> implements List<E> {
         size = 0;
         tailP =0;
     }
-
-
 
     public static void main(String[] args) {
         LinkedList<String> arr = new LinkedList<>();
