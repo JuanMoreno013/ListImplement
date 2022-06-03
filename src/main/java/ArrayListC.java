@@ -96,8 +96,6 @@ public class ArrayListC<E> implements List<E>{
     @Override
     public void remove(int index) {
         checkSize(index, size);
-        //size = 10; borrar = 2;  >>> 3-10
-
         Object[] elements2 = Arrays.copyOfRange(elements,index+1, elements.length);
         System.arraycopy(elements2,0, elements, index, elements2.length);
         size--;
