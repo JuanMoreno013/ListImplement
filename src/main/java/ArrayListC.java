@@ -83,7 +83,6 @@ public class ArrayListC<E> implements List<E>{
         }
         else
             throw new NullPointerException();
-
         return cont;
     }
 
@@ -129,49 +128,4 @@ public class ArrayListC<E> implements List<E>{
         size = 0;
     }
 
-    public static void main(String[] args) {
-        ArrayListC<String> arr = new ArrayListC<>();
-
-        String b2 = new String("pop");
-
-        arr.add("1");
-        arr.add("2");
-        arr.add("3");
-        arr.add("4");
-        arr.add("5");
-        arr.add("6");
-        arr.add("7");
-        arr.add("8");
-        arr.add("9");
-        arr.add("10");
-        arr.add("11");
-        arr.add("12");
-        arr.add(b2);
-
-        for (int i = 0; i < arr.size; i++)
-            System.out.print(arr.elements[i] + " ");
-
-        System.out.println("\n" + arr.size());
-        System.out.println(arr.get(1));
-
-        arr.remove("12");
-        for (int i = 0; i < arr.size; i++)
-            System.out.print(arr.elements[i] + " ");
-
-        System.out.println(" \n -----");
-
-        arr.remove(1);
-
-        for (int i = 0; i < arr.size; i++)
-            System.out.print(arr.elements[i] + " ");
-        System.out.println(" \n -----");
-
-        System.out.println(arr.size());
-        System.out.println(arr.contains(""));
-        arr.clear();
-        System.out.println(arr.size());
-
-        for (int i = 0; i < arr.size; i++)
-            System.out.print(arr.elements[i] + " ");
-    }
 }
