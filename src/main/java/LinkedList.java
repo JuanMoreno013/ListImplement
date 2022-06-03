@@ -168,48 +168,4 @@ public class LinkedList<E> implements List<E> {
         size = 0;
         tailP =0;
     }
-
-    public static void main(String[] args) {
-        LinkedList<String> arr = new LinkedList<>();
-
-        String b2 = new String("pop");
-        String b1 = new String("look");
-
-
-        arr.add(b1);
-        arr.add("1");
-//        arr.add(b1);
-        arr.add("2");
-        arr.add("3");
-        arr.add("4");
-        arr.add("5");
-//        arr.add(b1);
-//        arr.add("6");
-//        arr.add("7");
-//        arr.add("8");
-//        arr.add("9");
-//        arr.add("10");
-//        arr.add("11");
-//        arr.add("12");
-        arr.add(b2);
-
-        System.out.println( arr.contains("30") );
-//
-        arr.print();
-        arr.remove(3);
-        arr.print();
-
-        System.out.println(arr.get(0));
-        arr.remove(b2);
-        arr.print();
-
-        arr.remove(b1);
-        arr.print();
-
-        arr.clear();
-        System.out.println("--------");
-        arr.print();
-
-    }
-
 }
