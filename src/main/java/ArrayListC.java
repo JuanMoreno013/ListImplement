@@ -2,19 +2,14 @@ import java.util.Arrays;
 
 public class ArrayListC<E> implements List<E>{
 
-    /**
-     * Initial capacity.
-     */
     private static final int initial_capacity = 10;
-    //private static final Object[] defaultElements  = { null }; //FirstElements
-    private static final Object[] emptyElements = {}; //Empty
-    private int size; //length of array
-    private Object[] elements; //chido much nice very
+    private static final Object[] emptyElements = {};
+    private int size;
+    private Object[] elements;
     private static final int factorIncrease = 2;
 
-
-    public ArrayListC (){  //Empty elements
-        this.elements = new Object[initial_capacity];//defaultElements;
+    public ArrayListC (){
+        this.elements = new Object[initial_capacity];
     }
 
     public ArrayListC(int initialCapacity){
@@ -30,11 +25,11 @@ public class ArrayListC<E> implements List<E>{
     public void add(E ele) {
         if (ele == null)
             return;
-        CheckCapacity(); // CheckCapacity the array
+        checkCapacity();
         elements[size++] = ele;
     }
 
-    private void CheckCapacity() {
+    private void checkCapacity() {
         if (elements.length == size) {
             increase(size + 1);
         }
@@ -46,7 +41,6 @@ public class ArrayListC<E> implements List<E>{
 
         if (newCapacity - minCapacity >= 0) {
             elements = Arrays.copyOf(elements,newCapacity);
-            // System.out.println(elements.length);
         }
         if (minCapacity < 0)
             throw new OutOfMemoryError();
@@ -55,6 +49,7 @@ public class ArrayListC<E> implements List<E>{
     public int size() {
         return size;
     }
+
 
     @Override
     public E get(int index) {
@@ -70,7 +65,7 @@ public class ArrayListC<E> implements List<E>{
     public boolean contains(E item) {
         boolean cont=false;
 
-        if (!(item ==null))
+        if (item!=null)
         {
             for(Object o: elements)
             {
@@ -81,8 +76,11 @@ public class ArrayListC<E> implements List<E>{
                 }
             }
         }
-        else
-            throw new NullPointerException();
+
+//
+        if ( item== null )
+            throw new NullPointerException(" The item are null ");
+
         return cont;
     }
 
@@ -106,14 +104,13 @@ public class ArrayListC<E> implements List<E>{
     public void remove(E item) {
 
         int i= 0;
-        if ( item!= null )
-        {
-            for (; i < size; i++)
+        if ( item== null )
+            throw new NullPointerException(" The item are null ");
+
+        for (; i < size; i++)
                 if (item.equals(elements[i]))
                     break;
-        } else {
-            throw new NullPointerException(" The item are null ");
-        }
+
         remove(i);
     }
 

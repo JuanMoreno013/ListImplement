@@ -11,7 +11,6 @@ public class ArrayListCTest {
     @BeforeEach
     @DisplayName("Initialize Objects to test")
     public void initItems(){
-//        System.out.println("Before");
 
         arr = new ArrayListC<>();
         String b2 = new String("pop");
@@ -35,7 +34,7 @@ public class ArrayListCTest {
 
     @Test
     @DisplayName("Object ArrayList, throws exception, when you create an object with initialize capacity less than 0")
-    void ArrayList() {
+    void arrayList() {
         assertThrows(IllegalArgumentException.class, ()-> new ArrayListC<>(-1));
     }
 

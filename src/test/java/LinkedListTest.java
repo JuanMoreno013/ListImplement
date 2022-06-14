@@ -12,7 +12,6 @@ class LinkedListTest {
     @BeforeEach
     @DisplayName("Initialize Objects to test")
     public void initItems(){
-//        System.out.println("Before");
 
         arr = new LinkedList<>();
         String b2 = new String("pop");

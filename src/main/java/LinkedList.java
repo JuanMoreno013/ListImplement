@@ -6,53 +6,47 @@ public class LinkedList<E> implements List<E> {
        public Node nextNode;
        public Node(E data, Node nextNode) { this.data = data; this.nextNode = nextNode;}
         public Node(E data){this.data = data; this.nextNode = null;}
-
         public Node() {}
     }
 
 
-    private Node headNode; //head node of the linked list
+    private Node headNode;
     private Node tail = null;
-   // private Node last;
-    public int size;      //size of the list
+    private int size;
     private int tailP;
 
     public LinkedList (){
         headNode = null;
-//        size = 0;
     }
 
 
     void nNode(E data){
-        //        new_node = headNode;
         headNode= new Node(data);
     }
 
     public LinkedList(List<E> list) {
         if(list == null)
             throw new NullPointerException();
-
     }
 
     @Override
     public void add(E data) {
         Node new_node = new Node(data);
-//        new_node = headNode;
 
         if(data == null)
             throw new NullPointerException();
 
-        if(headNode==null)               //If list is empty, both head and tail will point to new node
+        if(headNode==null)
         {
             tail = new_node;
             headNode= new_node;
         }
         else {
-           tail.nextNode = new_node; //newNode will be added after tail such that tail's next will point to newNode
-            tail= new_node;               //newNode will become new tail of the list
+           tail.nextNode = new_node;
+            tail= new_node;
         }
 
-        tailP++;   //increase "index" tail
+        tailP++;
         size++;
     }
 
@@ -82,7 +76,7 @@ public class LinkedList<E> implements List<E> {
 
         boolean cont=false;
         Node temp = headNode;
-//
+
         if (!(item ==null))
         {
             while (temp != null) {
@@ -112,7 +106,6 @@ public class LinkedList<E> implements List<E> {
 
         if (index == 0) {
             headNode = headNode.nextNode;
-//            headNode = temp.nextNode; // Changed head
             tailP--;
             size--;
             return;
@@ -125,7 +118,7 @@ public class LinkedList<E> implements List<E> {
             i++;
         }
         temp.nextNode = temp.nextNode.nextNode;
-        size--;   //decrease the size
+        size--;
         tailP--;
     }
 
